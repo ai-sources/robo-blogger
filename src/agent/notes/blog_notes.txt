@@ -1,0 +1,12 @@
+okay need to write blog post about AI memory systems... 
+
+first, we need to explain what memory actually is so lets cover the types of memory
+semantic - like facts and stuff
+episodic - past experiences
+procedural - like instructions and rules
+
+second, we want to cover short term vs long term memory differences
+
+third, we want to cover memory management techniques
+talk about conversation history management
+mention that background vs real-time memory writing thing... pros and cons of each
