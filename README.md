@@ -26,15 +26,19 @@ The only required input is the name of the audio dictation file (e.g., `audio_di
 notes/audio_dictation.txt
 ```
 
+![Screenshot 2024-12-16 at 4 53 37 PM](https://github.com/user-attachments/assets/de7acd1f-9ee3-49f5-8aef-26bcda8ae479)
+
 ### Optional Inputs
 
 Two additional inputs are optional: 
 1. A list of URLs to documentation that you want to use to help write the blog post.
 2. A template for the blog post structure.
 
-![Screenshot 2024-12-13 at 4 15 06 PM](https://github.com/user-attachments/assets/db32bce7-9784-4315-8a41-c2d89abff6f2)
+![Screenshot 2024-12-16 at 3 20 10 PM](https://github.com/user-attachments/assets/8903f08c-eba0-4abc-b5a6-8bd3eff8fe9a)
 
 In the `configuration` tab, you can provide template for the blog post structure (see ## Customization below for examples).
+
+![Screenshot 2024-12-16 at 4 45 12 PM](https://github.com/user-attachments/assets/1712c440-68c0-4655-bd5f-8078fbfa125e)
 
 ## Motivation
 
@@ -79,7 +83,7 @@ Audio dictation provided:
 * [`notes/langgraph_cloud.txt`](notes/langgraph_cloud.txt)
 
 Resulting blog post: 
-* [`examples/product_update/langgrah_update.md`](examples/product_update/langgrah_update.md)
+* [`examples/product_update/langgraph_update.md`](examples/product_update/langgraph_update.md)
 
 ### Perspective Example
 
