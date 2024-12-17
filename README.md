@@ -32,7 +32,9 @@ In Studio inputs:
 * Provide the name of the dictation file (e.g., `blog_notes.txt`) in the `configuration` tab.
 * Optionally, provide any links to documentation that you want to use to write the blog post.
 
-In the `configuration` tab, you can optionally customize the blog post structure. 
+![Screenshot 2024-12-13 at 4 15 06 PM](https://github.com/user-attachments/assets/db32bce7-9784-4315-8a41-c2d89abff6f2)
+
+In the `configuration` tab, you can optionally customize the blog post structure (the default is in configuration.py).
 
 ## Motivation
 
