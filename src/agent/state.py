@@ -24,7 +24,7 @@ class Sections(BaseModel):
 
 @dataclass(kw_only=True)
 class BlogState:
-    transcribed_notes_file: str = field(default=None) # Blog notes   
+    transcribed_notes_file: str   
     urls: List[str] = field(default_factory=list) # List of urls     
     sections: list[Section] = field(default_factory=list) 
     completed_sections: Annotated[list, operator.add] # Send() API key
@@ -33,7 +33,7 @@ class BlogState:
     
 @dataclass(kw_only=True)
 class BlogStateInput:
-    transcribed_notes_file: str = field(default="blog_notes.txt") # Blog notes
+    transcribed_notes_file: str # Blog notes
     urls: List[str] = field(default_factory=list) # List of urls     
 
 @dataclass(kw_only=True)
@@ -46,7 +46,7 @@ from typing import List
 @dataclass(kw_only=True)
 class SectionState:
     section: Section # Report section   
-    transcribed_notes_file: str = field(default="blog_notes.txt") # Blog notes   
+    transcribed_notes_file: str 
     urls: List[str] = field(default_factory=list) # List of urls 
     blog_main_body_sections: str = field(default=None) # Main body sections from research
     completed_sections: list[Section] = field(default_factory=list) # Final key we duplicate in outer state for Send() API
