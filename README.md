@@ -14,8 +14,8 @@ export ANTHROPIC_API_KEY=<your_anthropic_api_key>
 Clone the repository and launch the assistant [using the LangGraph server](https://langchain-ai.github.io/langgraph/cloud/reference/cli/#dev):
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-git clone https://github.com/langchain-ai/robo_blogger.git
-cd robo_blogger
+git clone https://github.com/langchain-ai/robo-blogger.git
+cd robo-blogger
 uvx --refresh --from "langgraph-cli[inmem]" --with-editable . --python 3.11 langgraph dev
 ```
 
