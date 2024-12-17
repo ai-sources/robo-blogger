@@ -46,7 +46,7 @@ from typing import List
 @dataclass(kw_only=True)
 class SectionState:
     section: Section # Report section   
-    transcribed_notes_file: str 
+    transcribed_notes_file: str = field(default=None) 
     urls: List[str] = field(default_factory=list) # List of urls 
     blog_main_body_sections: str = field(default=None) # Main body sections from research
     completed_sections: list[Section] = field(default_factory=list) # Final key we duplicate in outer state for Send() API

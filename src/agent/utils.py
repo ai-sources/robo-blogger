@@ -49,7 +49,12 @@ def load_and_format_urls(url_list):
 
 def read_dictation_file(file_path: str) -> str:
     """Read content from a text file audio-to-text dictation."""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
+    try:
+        # Try to get directory from __file__ (for module imports)
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+    except NameError:
+        # Fallback for Jupyter notebooks
+        current_dir = os.getcwd()
     notes_dir = os.path.join(current_dir, "notes")
     absolute_path = os.path.join(notes_dir, file_path)
     print(f"Reading file from {absolute_path}")
