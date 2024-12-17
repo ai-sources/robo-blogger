@@ -1,6 +1,8 @@
 # Robo Blogger
 
-Robo Blogger is an assistant that transforms voice recordings into polished blog posts, making content creation effortless and efficient.
+Robo Blogger is an assistant for Voice-to-Content designed for blog posts. It allows the user simply record a summary of their ideas and will convert these into a polished blog post, using optionally provided links (e.g., documentation) and / or blog post outline to ground the writing process.
+
+![robo-blogger](https://github.com/user-attachments/assets/0599ebc3-bcd7-4a1f-abe5-07ee4e828ec8)
 
 ## Quickstart
 
