@@ -53,3 +53,44 @@ The workflow is simple:
 3. **Writing**: Automated generation of each blog section following the plan
 
 This approach builds on concepts from our previous [Report mAIstro](https://github.com/langchain-ai/report-mAIstro) project.
+
+## Customization
+
+We have a few different types of blog posts:
+
+* Product update: https://blog.langchain.dev/langgraph-cloud/
+* Perspective: https://blog.langchain.dev/what-is-an-agent/
+
+Templates for different types of blog posts can be passed in as a configuration option. 
+
+### Product Update Example
+
+URLs provided: 
+* "https://langchain-ai.github.io/langgraph/concepts/", 
+* "https://langchain-ai.github.io/langgraph/concepts/langgraph_platform/",
+* "https://langchain-ai.github.io/langgraph/concepts/deployment_options/"
+
+Blog structure provided: 
+* examples/product_update/template.txt
+
+Audio dictation provided: 
+* notes/langgraph_cloud.txt
+
+Resulting blog post: 
+* examples/product_update/langgrah_update.md
+
+### Perspective Example
+
+URLs provided: 
+* "https://langchain-ai.github.io/langgraph/concepts/high_level/", 
+* "https://langchain-ai.github.io/langgraph/concepts/agentic_concepts/",
+* "https://www.deeplearning.ai/the-batch/issue-253/"
+
+Blog structure provided: 
+* examples/perspective/template.txt
+
+Audio dictation provided: 
+* notes/agents.txt
+
+Resulting blog post: 
+* examples/perspective/agents.md

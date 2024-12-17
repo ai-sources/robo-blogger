@@ -1,3 +1,4 @@
+import os
 from langchain_community.document_loaders import WebBaseLoader
 from agent.state import Section
 
@@ -16,7 +17,14 @@ def load_and_format_urls(url_list):
              - Page content
     """
 
-    loader = WebBaseLoader(url_list)
+    # Clean and normalize the input URLs
+    if not isinstance(url_list, list):
+        raise ValueError("url_list must be a list of strings")
+    
+    # Clean each URL in the list
+    urls = [url.strip() for url in url_list if url.strip()]
+
+    loader = WebBaseLoader(urls)
     docs = loader.load()
 
     formatted_docs = []
@@ -41,11 +49,15 @@ def load_and_format_urls(url_list):
 
 def read_dictation_file(file_path: str) -> str:
     """Read content from a text file audio-to-text dictation."""
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    notes_dir = os.path.join(current_dir, "notes")
+    absolute_path = os.path.join(notes_dir, file_path)
+    print(f"Reading file from {absolute_path}")
     try:
-        with open(file_path, 'r', encoding='utf-8') as file:
+        with open(absolute_path, 'r', encoding='utf-8') as file:
             return file.read()
     except FileNotFoundError:
-        print(f"Warning: File not found at {file_path}")
+        print(f"Warning: File not found at {absolute_path}")
         return ""
     except Exception as e:
         print(f"Error reading file: {e}")
@@ -63,8 +75,6 @@ Description:
 {section.description}
 Main body: 
 {section.main_body}
-
 Content:
 {section.content if section.content else '[Not yet written]'}
-
 """

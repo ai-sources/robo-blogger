@@ -19,22 +19,15 @@ claude_3_5_sonnet = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperatur
 def generate_blog_plan(state: BlogState, config: RunnableConfig):
     """ Generate the report plan """
 
-    # Inputs
-    urls = state.urls
-    transcribed_notes_file = f"notes/{state.transcribed_notes_file}" 
-
     # Read transcribed notes
-    user_instructions = read_dictation_file(transcribed_notes_file)
-
-    # Load and format urls
-    url_source_str = "" if not urls else load_and_format_urls(urls)
+    user_instructions = read_dictation_file(state.transcribed_notes_file)
 
     # Get configuration
     configurable = configuration.Configuration.from_runnable_config(config)
     blog_structure = configurable.blog_structure
 
     # Format system instructions
-    system_instructions_sections = blog_planner_instructions.format(blog_structure=blog_structure, user_instructions=user_instructions, source_urls=url_source_str)
+    system_instructions_sections = blog_planner_instructions.format(user_instructions=user_instructions, blog_structure=blog_structure)
 
     # Generate sections 
     structured_llm = claude_3_5_sonnet.with_structured_output(Sections)
@@ -48,10 +41,9 @@ def write_section(state: SectionState):
     # Get state 
     section = state.section
     urls = state.urls
-    transcribed_notes_file = f"notes/{state.transcribed_notes_file}" 
 
     # Read transcribed notes
-    user_instructions = read_dictation_file(transcribed_notes_file)
+    user_instructions = read_dictation_file(state.transcribed_notes_file)
 
     # Load and format urls
     url_source_str = "" if not urls else load_and_format_urls(urls)
