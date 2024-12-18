@@ -1,6 +1,17 @@
 # Robo Blogger
 
-Robo Blogger is an assistant for Voice-to-Content designed for blog posts. It allows the user simply record a summary of their ideas and will convert these into a polished blog post, using optionally provided links (e.g., documentation) and / or blog post outline to ground the writing process.
+Creating polished blog posts is traditionally time-consuming and challenging. The gap between having great ideas and turning them into well-structured content can be significant. Robo Blogger addresses this challenge by transforming the content creation process. The key insight is that our best ideas often come when we're away from the keyboard - while walking, commuting, or right after a meeting. Robo Blogger leverages this by:
+
+1. **Capturing Ideas Naturally**: Instead of starting with writing, [simply speak your thoughts using any voice-to-text app](https://hamel.dev/blog/posts/audience/#build-a-voice-to-content-pipeline)
+2. **Maintaining Structure**: Convert raw ideas into polished content while following proven blog post patterns
+3. **Grounding in Documentation**: Optionally incorporate reference materials to ensure accuracy and depth
+
+The workflow is streamlined to three steps:
+1. **Voice Capture**: Record your thoughts using any dictation app (e.g., Flowvoice)
+2. **Planning**: Claude 3.5 Sonnet converts your dictation and structure into a coherent plan
+3. **Writing**: Automated generation of each blog section following the plan, using your dictation and any documentation links
+
+This approach builds on concepts from our previous [Report mAIstro](https://github.com/langchain-ai/report-mAIstro) project, but specifically optimized for blog post creation. By separating idea capture from content structuring, Robo Blogger helps maintain the authenticity of your original thoughts while ensuring professional presentation.
 
 ![robo-blogger](https://github.com/user-attachments/assets/0599ebc3-bcd7-4a1f-abe5-07ee4e828ec8)
 
@@ -8,7 +19,7 @@ Robo Blogger is an assistant for Voice-to-Content designed for blog posts. It al
 
 Set API keys for the LLM of choice (default is Anthropic Claude 3.5 Sonnet):
 ```
-export ANTHROPIC_API_KEY=<your_anthropic_api_key>
+cp .env.example .env
 ```
 
 Clone the repository and launch the assistant [using the LangGraph server](https://langchain-ai.github.io/langgraph/cloud/reference/cli/#dev):
@@ -41,26 +52,6 @@ Two additional inputs are optional:
 In the `configuration` tab, you can provide template for the blog post structure (see ## Customization below for examples).
 
 ![Screenshot 2024-12-16 at 4 45 12 PM](https://github.com/user-attachments/assets/1712c440-68c0-4655-bd5f-8078fbfa125e)
-
-## Motivation
-
-Blog posts typically follow a consistent structure:
-
-1. High level overview of the topic
-2. Code documentation and examples
-3. Structured content walkthrough
-
-While this structure is clear, getting from initial thoughts to a polished first draft can be challenging. Robo Blogger streamlines this process by requiring only:
-- A voice recording of your initial thoughts
-- Optional documentation links
-- Optional blog structure
-
-The workflow is simple:
-1. **Voice Capture**: Record your thoughts using any dictation app (e.g., Flowwise)
-2. **Planning**: Claude 3.5 Sonnet converts your dictation and structure into a coherent plan
-3. **Writing**: Automated generation of each blog section following the plan, using your dictation and any documentation links
-
-This approach builds on concepts from our previous [Report mAIstro](https://github.com/langchain-ai/report-mAIstro) project.
 
 ## Customization
 

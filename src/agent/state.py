@@ -40,9 +40,6 @@ class BlogStateInput:
 class BlogStateOutput:
     final_blog: str = field(default=None) # Final report
 
-from dataclasses import dataclass, field
-from typing import List
-
 @dataclass(kw_only=True)
 class SectionState:
     section: Section # Report section   
