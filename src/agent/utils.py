@@ -83,3 +83,4 @@ Main body:
 Content:
 {section.content if section.content else '[Not yet written]'}
 """
+    return formatted_str
