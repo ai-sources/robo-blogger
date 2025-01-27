@@ -12,7 +12,7 @@ from agent.utils import load_and_format_urls, read_dictation_file, format_sectio
 
 # ------------------------------------------------------------
 # LLMs 
-claude_3_5_sonnet = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0) 
+claude_3_5_sonnet = ChatAnthropic(model="claude-3-5-sonnet-latest", temperature=0) 
 
 # ------------------------------------------------------------
 # Graph
@@ -68,12 +68,13 @@ def write_final_sections(state: SectionState):
 
     # Get state 
     section = state.section
+    urls = state.urls
     
     # Format system instructions
     system_instructions = intro_conclusion_instructions.format(section_name=section.name, 
                                                                section_topic=section.description, 
                                                                main_body_sections=state.blog_main_body_sections, 
-                                                               source_urls=state.urls)
+                                                               source_urls="" if not urls else load_and_format_urls(urls))
 
     # Generate section  
     section_content = claude_3_5_sonnet.invoke([SystemMessage(content=system_instructions)]+[HumanMessage(content="Generate an intro/conclusion section based on the provided main body sections.")])
@@ -107,7 +108,6 @@ def gather_completed_sections(state: BlogState):
 
     # Format completed section to str to use as context for final sections
     completed_report_sections = format_sections(completed_sections)
-
     return {"blog_main_body_sections": completed_report_sections}
 
 def initiate_final_section_writing(state: BlogState):
